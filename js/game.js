@@ -9,23 +9,8 @@ console.log(playerName, playerHealth, playerAttack);
 
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 
-// console.log(enemyNames);
-// console.log(enemyNames[0]);
-// console.log(enemyNames[1]);
-// console.log(enemyNames[2]);
-// console.log(enemyNames.length);
-
-// for (var i = 0; i < enemyNames.length; i++) {
-//     console.log(enemyNames[i]);
-//     console.log(i);
-//     console.log(enemyNames[i] + " is at " + i + " index");
-// }
-
 var enemyHealth = 50;
 var enemyAttack = 12;
-
-// Alert players that they are starting the round
-// window.alert("Welcome to Robot Gladiators!");
 
 var fight = function(enemyName) {
     
@@ -51,13 +36,6 @@ var fight = function(enemyName) {
             break;
             }
         }
-
-
-        // // if no (false), ask quetion again by running fight() again
-        // else {
-        //     fight();
-        // }
-
 
         enemyHealth = enemyHealth - playerAttack;
 
@@ -99,15 +77,20 @@ var fight = function(enemyName) {
         } else {
             window.alert(playerName + " still has " + playerHealth + " health left.");
         }
-        
-            
-        } // end of while loop
+    } // end of while loop
 };  // end of fight function
 
 for (var i = 0; i < enemyNames.length; i++) {
     
-    var pickedEnemyName = enemyNames[i];
-    enemyHealth = 50;
+    if (playerHealth > 0) {
+        window.alert("Welcome to Robot Gladiators! Round " + (i+1));
 
-    fight(pickedEnemyName);
+        var pickedEnemyName = enemyNames[i];
+        enemyHealth = 50;
+
+        fight(pickedEnemyName);
+    } else {
+        window.alert("You have lost your robot in battle! Game Over!");
+        break;
+    }
 }
